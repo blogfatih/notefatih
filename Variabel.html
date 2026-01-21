@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Variabel JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            --bg-dark: linear-gradient(135deg, #0d1b2a, #1b263b, #1e3a8a);
+            --card-light: #ffffff;
+            --card-dark: #1e293b;
+            --text-light: #1e3a8a;
+            --text-dark: #f1f5f9;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.4s ease;
+        }
+
+        body.dark {
+            background: var(--bg-dark);
+        }
+
+        .card {
+            background: var(--card-light);
+            color: var(--text-light);
+            max-width: 900px;
+            width: 100%;
+            padding: 30px 35px;
+            border-radius: 18px;
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.15);
+            animation: fadeIn 0.8s ease;
+            transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        body.dark .card {
+            background: var(--card-dark);
+            color: var(--text-dark);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .toggle {
+            cursor: pointer;
+            padding: 8px 14px;
+            border-radius: 20px;
+            background: var(--accent);
+            color: white;
+            font-size: 14px;
+            border: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .toggle:hover {
+            background: var(--accent-hover);
+            transform: scale(1.05);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px 20px;
+        }
+
+        .item {
+            padding: 12px 14px;
+            border-left: 4px solid var(--accent);
+            background: rgba(59, 130, 246, 0.08);
+            border-radius: 8px;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        body.dark .item {
+            background: rgba(59, 130, 246, 0.15);
+        }
+
+        .item:hover {
+            transform: translateY(-3px);
+            background: rgba(59, 130, 246, 0.12);
+        }
+
+        body.dark .item:hover {
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .label {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        footer {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            opacity: 0.8;
+            color: inherit;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Smooth transitions for all elements */
+        * {
+            transition: color 0.3s, background-color 0.3s;
+        }
+    </style>
+
+    <script>
+        var nama = prompt("Siapa nama kamu?", "");
+
+        document.write("<div class='card'>");
+        document.write("<header>");
+        document.write("<h1>Profil Sekolah</h1>");
+        document.write("<button class='toggle' onclick='toggleDark()'>Dark Mode</button>");
+        document.write("</header>");
+
+        document.write("<p>Halo, <strong>" + nama + "</strong></p>");
+
+        var yakin = confirm("Apakah kamu yakin akan mengunjungi SMKN 1 Purwokerto?");
+        if (yakin) {
+            window.location = "https://smkn1purwokerto.sch.id/";
+        }
+
+        var NamaSekolah = "SMK N 1 Purwokerto";
+        var AlamatSekolah = "Jl. DR. Soeparno No.29, Purwokerto";
+        var NamaJurusan = "AKL, MPLB, Pemasaran, DKV, TJKT, PPLG, Farmasi";
+        var Jumlahsiswa = "2128 Siswa";
+        var Jumlahguru = 145;
+        var Ekstrakurikuler = "Badminton, Pramuka, Bahasa Inggris, Handball, Futsal, MPK, Basket, Paskibra, Comlite Jurnalistik, Voli, Rohis, Tari, PKS, Mata Lensa, Panahan, SKS, MP, Bahasa Mandarin, PIK-R, Rohkriskat, OSIS, PMR, Bahasa Jepang, Musik, KAPA, Teater, dan PPA.";
+        var KepalaSekolah = "Drs. Witoto";
+        var Website = "https://smkn1purwokerto.sch.id/";
+
+        document.write("<div class='content'>");
+        document.write(item("Nama Sekolah", NamaSekolah));
+        document.write(item("Alamat", AlamatSekolah));
+        document.write(item("Jurusan", NamaJurusan));
+        document.write(item("Jumlah Siswa", Jumlahsiswa));
+        document.write(item("Jumlah Guru & Staff TU", Jumlahguru));
+        document.write(item("Ekstrakurikuler", Ekstrakurikuler));
+        document.write(item("Kepala Sekolah", KepalaSekolah));
+        document.write(item("Website", "<a href='"+Website+"' target='_blank'>Kunjungi</a>"));
+        document.write("</div>");
+
+        document.write("<footer>© SMKN 1 Purwokerto | Fatih JavaScript Dasar</footer>");
+        document.write("</div>");
+
+        function item(label, value) {
+            return "<div class='item'><div class='label'>" + label + "</div>" + value + "</div>";
+        }
+
+        function toggleDark() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
+
